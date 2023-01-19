@@ -1,9 +1,16 @@
 # How to write a custom widget for SAP Analytics Cloud
+
+## Custom widgets in SAP Analytics Cloud
+A SAP Analytics Cloud custom widget is built using the SAPUI5 JavaScript framework. The widget is essentially a reusable component that can be added to the SAP Analytics Cloud platform to provide additional functionality to users. The widget is built using a combination of HTML, JavaScript, and CSS, and can be configured to interact with the SAP Analytics Cloud platform using APIs.
+
 ## Context
-The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-rder point, green means the re-order point is still not reached. The widget can be configurated through the builder panel, as well as the product number through the styling panel. I know this is against the rules of SAC Ideology, but it will become clear later in this document why dit is done. See the GIF attachment below for the result.
+The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-order point, green means the re-order point is still not reached. See the GIF attachment below for the result.
 
 ### The result :
 ![alt text](CustomWidget.gif)
+
+### TO DO
+- Add button with link to order in S/4HANA System
 ### Links : 
 - https://blogs.sap.com/2020/11/12/how-to-access-non-standard-data-sources-within-sap-analytics-cloud/
 - https://blogs.sap.com/2022/12/04/demystifying-custom-widgets-for-sap-analytics-cloud/
@@ -263,4 +270,4 @@ _submit(e) {
 
  ![alt text](img1.png)
 
-
+Contact : cas.criel@flexso.com
