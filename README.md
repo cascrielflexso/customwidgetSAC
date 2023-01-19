@@ -3,7 +3,19 @@
 The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-rder point, green means the re-order point is still not reached. The widget can be configurated through the builder panel, as well as the product number through the styling panel. I know this is against the rules of SAC Ideology, but it will become clear later in this document why dit is done. See the GIF attachment below for the result.
 
 ### The result :
-![alt text](img/CustomWidget.gif)
+![alt text](CustomWidget.gif)
+### Links : 
+- https://blogs.sap.com/2020/11/12/how-to-access-non-standard-data-sources-within-sap-analytics-cloud/
+- https://blogs.sap.com/2022/12/04/demystifying-custom-widgets-for-sap-analytics-cloud/
+- https://help.sap.com/doc/c813a28922b54e50bd2a307b099787dc/release/en-US/CustomWidgetDevGuide_en.pdf
+- https://www.linkedin.com/pulse/fast-filterous-part-3-nico-reichen/
+- https://www.sac-export.com/blog/sac-custom-widget-data-binding-creating-a-csv-download-component
+- https://blogs.sap.com/2022/05/25/announcing-custom-widgets-data-binding-in-sap-analytics-cloud-analytics-designer/
+- https://blogs.sap.com/2022/08/24/deploying-custom-widget-into-sap-btp-cloudfoundry/
+- https://blogs.sap.com/2022/11/23/hosting-sap-analytics-cloud-custom-widgets-into-github/
+- https://blogs.sap.com/2021/12/29/deep-integration-of-sap-analytics-cloud-and-arcgis/
+- https://blogs.sap.com/2019/12/06/build-a-custom-widget-in-sap-analytics-cloud-analytics-application/
+- https://blogs.sap.com/?p=1662489?source=email-global-notification-bp-new-in-tag-followed
 
 ### Components : 
 - JSON-File
@@ -75,7 +87,7 @@ The next step is to create references to our JavaScript-Files. For the sake of t
 		}
 	}
   ```
- ![alt text](img/img2.png)
+ ![alt text](img2.png)
   
   ## WebComponent
   First thing to do when adding the WebComponent, is to define the visual itself. This is done with HTML and CSS. (CSS can also be defined in a separate file) 
@@ -249,6 +261,6 @@ _submit(e) {
 		}
 ```
 
- ![alt text](img/img1.png)
+ ![alt text](img1.png)
 
 
