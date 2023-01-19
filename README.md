@@ -294,4 +294,4 @@ _submit(e) {
 
  ![alt text](img1.png)
 
-Contact : cas.criel@flexso.com
+When further documentation/explanation needed, please contact me : cas.criel@flexso.com
