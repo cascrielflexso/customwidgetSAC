@@ -1,6 +1,6 @@
 # SAP Analytics Cloud Custom Widget Configuration
 
-## **Custom widgets in SAP Analytics Cloud **
+## **Custom widgets in SAP Analytics Cloud**
 A SAP Analytics Cloud custom widget is built using the SAPUI5 JavaScript framework. The widget is essentially a reusable component that can be added to the SAP Analytics Cloud platform to provide additional functionality to users. The widget is built using a combination of HTML, JavaScript, and CSS, and can be configured to interact with the SAP Analytics Cloud platform using APIs.
 
 ## **Context**
@@ -8,7 +8,7 @@ The purpose of the widget is to act as some kind of storage location of a certai
 
 **TIP:** Make sure to use the Dev Tools built-in Google Chrome for easy debugging! (ctrl+shift+J)
 
-###  **The result : **
+###  **The result :**
 ![alt text](CustomWidget.gif)
 
 - The properties of the widget are stored in a SAP Analytics Cloud model.
@@ -17,7 +17,7 @@ The purpose of the widget is to act as some kind of storage location of a certai
 	- dynamic colors are configured in the WebComponent Script
 	- Hover actions can be configured with HTML/CSS/JS
 
-#### ** What is Covered? **
+#### **What is Covered?**
 - Data Binding in builder panel
 	- Data binding in back-end with Analytical Application API Calls
 - Custom Widget Interface (JSON + HTML + JavaScript)
@@ -26,16 +26,16 @@ The purpose of the widget is to act as some kind of storage location of a certai
 - Local Hosting for development
 - GitHub Hosting for production -> (to be replaced with Cloud Foundry later?)
 - Dynamic changement of properties
-####  **What is not Covered? **
+####  **What is not Covered?**
 - External API-Calls
 - OData Call
 - External Data Import
 - Custom Builder Panel
 
 
-### ** TO DO **
+### **TO DO**
 - Add button with link to order in S/4HANA System
-###  **Links :  **
+###  **Links :**
 - https://blogs.sap.com/2020/11/12/how-to-access-non-standard-data-sources-within-sap-analytics-cloud/
 - https://blogs.sap.com/2022/12/04/demystifying-custom-widgets-for-sap-analytics-cloud/
 - https://help.sap.com/doc/c813a28922b54e50bd2a307b099787dc/release/en-US/CustomWidgetDevGuide_en.pdf
@@ -48,7 +48,7 @@ The purpose of the widget is to act as some kind of storage location of a certai
 - https://blogs.sap.com/2019/12/06/build-a-custom-widget-in-sap-analytics-cloud-analytics-application/
 - https://blogs.sap.com/?p=1662489?source=email-global-notification-bp-new-in-tag-followed
 
-###  **Components : **
+###  **Components :**
 - JSON-File
 - JS-File for Styling Panel interface
 - JS-File for the Web Component
