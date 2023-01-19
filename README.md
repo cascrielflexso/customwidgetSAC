@@ -3,7 +3,7 @@
 The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-rder point, green means the re-order point is still not reached. The widget can be configurated through the builder panel, as well as the product number through the styling panel. I know this is against the rules of SAC Ideology, but it will become clear later in this document why dit is done. See the GIF attachment below for the result.
 
 ### The result :
-img
+![alt text](img/CustomWidget.gif)
 
 ### Components : 
 - JSON-File
@@ -15,7 +15,7 @@ img
 ## The JSON-File
 ### We want to give a name and id to our widget first. This will help us to find the widget in SAC later.
 
-```
+```json
 "name": "localhost",
 	"description": "",
 	"newInstancePrefix": "localhost",
@@ -32,7 +32,7 @@ The next step is to create references to our JavaScript-Files. For the sake of t
 **Warning** : For now, the url is referring to my local server, where the JS-objects are stored. These can be replaced with the GitHub-URLs when hosting on GitHub. This is also the case for widget hosting on SAP Cloud Foundry.
 
 
-```
+```json
 "webcomponents": [
 		{
 			"kind": "main",
@@ -57,7 +57,7 @@ The next step is to create references to our JavaScript-Files. For the sake of t
   
   ### DataBinding
   **Important** : Be sure to add the following code in order to be able to link a SAC model to your widget!
-  ```
+  ```json
   "dataBindings": {
 		"myDataBinding": {
 		  "feeds": [
@@ -75,12 +75,13 @@ The next step is to create references to our JavaScript-Files. For the sake of t
 		}
 	}
   ```
-  img
+ ![alt text](img/img2.png)
   
   ## WebComponent
-  First thing to do when adding the WebComponent, is to define the visual itself. This is done with HTML and CSS. (CSS can also be defined in a separate file)
+  First thing to do when adding the WebComponent, is to define the visual itself. This is done with HTML and CSS. (CSS can also be defined in a separate file) 
+
   Make sure to add the **Class** and **ID** to the components you want to make dynamic with the JS later!
-  ``
+  ```JS
   
 let template = document.createElement("template")
 	template.innerHTML = `
@@ -147,9 +148,12 @@ let template = document.createElement("template")
 	  </div>
 	</div>
 	
-	```
+```
   ### Constructor
-  ```constructor() {
+  The Root is later used to modify our previously defined HTML objects. Also, an 'onClick' event is attached to the widget.
+
+  ```js
+  constructor() {
 			super();
 			let shadowRoot = this.attachShadow({mode: "open"});
 			shadowRoot.appendChild(template.content.cloneNode(true));
@@ -160,7 +164,91 @@ let template = document.createElement("template")
 				this.dispatchEvent(event);
 			});
 			this._props = {};
-			//
+```
 
-  
-  
+### Updating the widget
+
+The following functions make sure data added or modified through the UI, will automatically update the widget. 
+```js
+onCustomWidgetBeforeUpdate(changedProperties) {
+			this._props = { ...this._props, ...changedProperties };
+		}
+
+		onCustomWidgetAfterUpdate(changedProperties) {
+			this.setData()
+			console.log(JSON.stringify(changedProperties));
+			/*if ("color" in changedProperties) {
+				this.style["background-color"] = changedProperties["color"];
+			}*/
+			if ("prod_number" in changedProperties) {
+				this.prod_number = changedProperties["prod_number"];
+			}
+		}
+```
+
+### Dynamic Widget Configuration
+This is where everything comes together. In this function, we will first select all our widget objects, link them to their model data, and define their styling based on conditions.
+
+The data is fetched through the databinding object, defined in the JSON-File before!
+
+By selecting objects from the HTML init, we can dynamically change the widgets properties and visualizations. 
+```js
+setData(){
+			let measure = 0;
+			let product = "";
+			let image = "";
+			let rop = "";
+			console.log(this.prod_number)
+			this.myDataBinding.data.forEach(row => {
+				if(row["dimensions_0"]['id'] === this.prod_number){
+					measure = row["measures_0"]["raw"];
+					product = row["dimensions_0"]["label"];
+					image = row["dimensions_1"]["id"];
+					rop = row["measures_1"]["raw"];
+				}
+				//console.log('row : '+JSON.stringify(row));
+			})
+			this.shadowRoot.getElementById("measure").innerText = measure;
+			this.shadowRoot.getElementById("product").innerText = product;
+			this.shadowRoot.getElementById("number").innerText = this.prod_number;
+			this.shadowRoot.getElementById("ROP").innerText = rop;
+			this.shadowRoot.getElementById("img").src = image;
+			this.shadowRoot.getElementById("button").href = "https://linflexhana.sap.flexso.com:8443//sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=800&sap-language=EN#PurchaseOrder-display&/CreatePOByMaterial?sap-parameters=MATERIAL:256";
+
+			if(parseInt(measure) < parseInt(rop)){
+				this.shadowRoot.getElementById("measure").style.color = "red";
+				this.shadowRoot.getElementById("bullet").style.backgroundColor = "red";
+				this.shadowRoot.getElementById("card").style.borderColor = "red";
+			}else{
+				this.shadowRoot.getElementById("measure").style.color = "green";
+				this.shadowRoot.getElementById("bullet").style.backgroundColor = "green";
+				this.shadowRoot.getElementById("card").style.borderColor = "green";
+			}
+
+			 
+		}
+```
+
+### Extra
+There is also a wait function because otherwise errors will pop-up. It has something to do with the widget loading before the data binding is initialized.
+
+## Styling Panel
+The implementation for the styling panel is configured more or less the same, except for the submitting part through the HTML form. The properties link to the JSON object. 
+
+```js
+_submit(e) {
+			e.preventDefault();
+			this.dispatchEvent(new CustomEvent("propertiesChanged", {
+					detail: {
+						properties: {
+							color: this.color,
+							prod_number : this.prod_number
+						}
+					}
+			}));
+		}
+```
+
+ ![alt text](img/img1.png)
+
+
