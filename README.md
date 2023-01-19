@@ -6,6 +6,8 @@ A SAP Analytics Cloud custom widget is built using the SAPUI5 JavaScript framewo
 ## Context
 The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-order point, green means the re-order point is still not reached. See the GIF attachment below for the result.
 
+**TIP:** Make sure to use the Dev Tools built-in Google Chrome for easy debugging! (ctrl+shift+J)
+
 ### The result :
 ![alt text](CustomWidget.gif)
 
