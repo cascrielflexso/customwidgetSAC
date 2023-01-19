@@ -3,7 +3,7 @@
 ## **Custom widgets in SAP Analytics Cloud **
 A SAP Analytics Cloud custom widget is built using the SAPUI5 JavaScript framework. The widget is essentially a reusable component that can be added to the SAP Analytics Cloud platform to provide additional functionality to users. The widget is built using a combination of HTML, JavaScript, and CSS, and can be configured to interact with the SAP Analytics Cloud platform using APIs.
 
-## ** Context **
+## **Context**
 The purpose of the widget is to act as some kind of storage location of a certain product. A map of the warehouse can be imported into SAC through an analytical application. The widget can then be selected and it immediately turns red or green. Red means the stock level is lower than the re-order point, green means the re-order point is still not reached. See the GIF attachment below for the result.
 
 **TIP:** Make sure to use the Dev Tools built-in Google Chrome for easy debugging! (ctrl+shift+J)
