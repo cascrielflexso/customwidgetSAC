@@ -1,4 +1,4 @@
-# How to write a custom widget for SAP Analytics Cloud
+# SAP Analytics Cloud Custom Widget Configuration
 
 ## Custom widgets in SAP Analytics Cloud
 A SAP Analytics Cloud custom widget is built using the SAPUI5 JavaScript framework. The widget is essentially a reusable component that can be added to the SAP Analytics Cloud platform to provide additional functionality to users. The widget is built using a combination of HTML, JavaScript, and CSS, and can be configured to interact with the SAP Analytics Cloud platform using APIs.
