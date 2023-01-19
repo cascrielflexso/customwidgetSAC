@@ -1,0 +1,104 @@
+{
+	"name": "localhost",
+	"description": "",
+	"newInstancePrefix": "localhost",
+	"eula": "",
+	"vendor": "cas",
+	"license": "",
+	"id": "localhost",
+	"version": "1.0.1",
+	"icon": "",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "custom-button",
+			"url": "http://localhost:5500/github2712/Webcomponent.js",
+			"integrity": ""	,
+			"ignoreIntegrity": true
+			
+		},
+		{
+			"kind": "styling",
+			"tag": "com-sap-sample-coloredbox-styling",
+			"url": "http://localhost:5500/github2712/stylingpanel.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"color": {
+			"type": "string",
+			"description": "Background color",
+			"default": "white"
+		},
+		"width": {
+			"type": "integer",
+			"default": 192
+		},
+		"height": {
+			"type": "integer",
+			"default": 290
+		},
+		"prod_number":{
+			"type":"string",
+			"description": "Product number",
+			"default" : "2545852656845"
+		}
+	},
+	"methods": {
+		"setProd_number":{
+			"description" : "set product number",
+			"parameters": [
+				{
+					"name" : "newProd_number",
+					"type": "string",
+					"description":"The new product number"
+				}
+			],
+			"body": "this.prod_number = newProd_number;"
+		}, 
+		"getProd_number":{
+			"returnType":"string",
+			"description":"Returns the product number",
+			"body": "return this.prod_number;"
+		},
+		"setColor": {
+			"description": "Sets the background color.",
+			"parameters": [
+				{
+					"name": "newColor",
+					"type": "string",
+					"description": "The new background color"
+				}
+			],
+			"body": "this.color = newColor;"
+		},
+		"getColor": {
+			"returnType": "string",
+			"description": "Returns the background color.",
+			"body": "return this.color;"
+		}
+	},
+	
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the button."
+		}
+	},
+	"dataBindings": {
+		"myDataBinding": {
+		  "feeds": [
+			{
+			  "id": "dimensions",
+			  "description": "Dimensions",
+			  "type": "dimension"
+			},
+			{
+			  "id": "measures",
+			  "description": "Measures",
+			  "type": "mainStructureMember"
+			}
+		  ]
+		}
+	}
+}
