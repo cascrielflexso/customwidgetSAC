@@ -15,6 +15,22 @@ The purpose of the widget is to act as some kind of storage location of a certai
 	- dynamic colors are configured in the WebComponent Script
 	- Hover actions can be configured with HTML/CSS/JS
 
+#### What is Covered?
+- Data Binding in builder panel
+	- Data binding in back-end with Analytical Application API Calls
+- Custom Widget Interface (JSON + HTML + JavaScript)
+- Custom Builder Panel interface (JSON + HTML + JavaScript)
+- Custom Styling Panel Interface (JSON + HTML + JavaScript)
+- Local Hosting for development
+- GitHub Hosting for production -> (to be replaced with Cloud Foundry later?)
+- Dynamic changement of properties
+#### What is not Covered?
+- External API-Calls
+- OData Call
+- External Data Import
+- Custom Builder Panel
+
+
 ### TO DO
 - Add button with link to order in S/4HANA System
 ### Links : 
