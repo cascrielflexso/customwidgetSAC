@@ -9,6 +9,12 @@ The purpose of the widget is to act as some kind of storage location of a certai
 ### The result :
 ![alt text](CustomWidget.gif)
 
+- The properties of the widget are stored in a SAP Analytics Cloud model.
+	- Image link to online stored location (f.e. GitHub Page or Google Image)
+	- Measure data is retrieved through the data binding configured in the builder panel
+	- dynamic colors are configured in the WebComponent Script
+	- Hover actions can be configured with HTML/CSS/JS
+
 ### TO DO
 - Add button with link to order in S/4HANA System
 ### Links : 
